@@ -295,6 +295,7 @@ import axios from 'axios';
     }
     
     .sidebar__head_title p {
+        color: var(--main-project-color);
         font-size: 18px;
         font-weight: 600;
     }
@@ -328,6 +329,7 @@ import axios from 'axios';
           color: #373e44;
      }
     .sidebar__menu p,.sidebar__menu_mobile p {
+        color: var(--main-project-color);
         padding-bottom: 30px;
     }
     .sidebar__menu p:hover,.sidebar__menu_mobile p:hover {
@@ -335,7 +337,7 @@ import axios from 'axios';
         cursor: pointer;
     }
     .sidebar__menu a,.sidebar__menu_mobile a {
-        color: #373e44;
+        color: var(--main-project-color);
         text-decoration: none;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -375,6 +377,7 @@ import axios from 'axios';
 
     }
     .sidebar__contacts p {
+        color: var(--main-project-color);
         margin-left: 10px;
         margin-bottom: 10px;  
     }
@@ -558,14 +561,10 @@ import axios from 'axios';
       
         font-size: 14px;
     }
-
-    
-    
     .footer {
         margin-top: 40px;
         width: 73.5%;
         height: 20px;
-       
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -580,12 +579,13 @@ import axios from 'axios';
     
     }
     .footer p {
-        
+        color: var(--main-project-color);
         font-size: 17px;
         font-weight: bold;
         white-space: nowrap;
     }
     .footer a {
+        color: var(--main-project-color);
         font-weight: bold;
         white-space: nowrap;
         font-size: 17px;
@@ -686,12 +686,14 @@ import axios from 'axios';
             position: unset;
         }
         .footer p {
+            color: var(--main-project-color);
             text-align: center;
             font-size: 15px;
             padding-top: 10px;
             padding-bottom: 10px;
         }
         .footer a {
+            color: var(--main-project-color);
             display: flex;
             flex-direction: row;
             align-items: center;

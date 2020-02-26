@@ -64,7 +64,7 @@
                         </div>
                         <div class="help__item_line"></div>
                     </div>
-                    <div class="help__item">
+                    <!-- <div class="help__item">
                         <div class="help__item_top">
                             <div  class="help__item_icon">
                                 <i class="fas fa-donate fa-2x"></i>
@@ -74,7 +74,7 @@
                         </div>
      
                         <div class="help__item_line"></div>
-                    </div>
+                    </div> -->
                 </div>
                
                 <p class="help__title">Отзывы</p>
