@@ -88,7 +88,7 @@
                     <div class="footer">
                         <p>© 2020 Частная школа «Akeac»</p>
 
-                        <a>Сайт разработан  в &nbsp<i class="fab fa-instagram"></i>@encode.kz</a>
+                        <a href="https://www.instagram.com/encode.kz/" target="_blank">Сайт разработан  в &nbsp<i class="fab fa-instagram"></i>@encode.kz</a>
                     </div>
                 </div>
     </div>
@@ -118,7 +118,7 @@ import axios from 'axios';
                 
             },
             sendData() {
-                    var param = {
+                   var param = {
                         name: this.name,
                         phone: this.phone,
                         type: this.type,
@@ -147,7 +147,7 @@ import axios from 'axios';
                 this.type = "";
                 this.email = "";
                 this.success = "";
-
+                this.loader = false;
                 var modal = document.querySelector('.modal');
                 modal.style.display = "none";
             },
@@ -162,48 +162,8 @@ import axios from 'axios';
               
                 menu.style.transition = ".5s";
                 menu.style.left = "-320px";
-            },
-            plusSlides(n) {
-                this.slideIndex = this.slideIndex +n;
-                this.showSlides(this.slideIndex);
-            },
-            currentSlide(n) {
-                this.showSlides(this.slideIndex = n);
-            },
-            showSlides(n) {
-             
-                var i;
-                var slides = document.querySelectorAll(".myslides");
-
-                console.log(slides);
-                console.log(n);
-                var dots = document.querySelectorAll(".dot");
-            
-                if (n > slides.length) {
-                    
-                     this.slideIndex = 1;
-                   
-               
-                }
-                else if (n < 1) {
-                    this.slideIndex = slides.length;
-                    console.log("second");
-                }
-                console.log("elssee");
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-
-                slides[this.slideIndex-1].style.display = "block";
-                dots[this.slideIndex-1].className += " active";
             }
-            
-        },
-        mounted(){
-            this.showSlides(this.slideindex);
+           
         }
           
           
@@ -323,10 +283,10 @@ import axios from 'axios';
     }
     .sidebar__menu i,.sidebar__menu_mobile i {
           display: flex;
-          width: 30px;
+          width: 30px;  
           flex-direction: row;
           justify-content: center;
-          color: #373e44;
+          color: var(--main-project-color);
      }
     .sidebar__menu p,.sidebar__menu_mobile p {
         color: var(--main-project-color);
@@ -513,7 +473,6 @@ import axios from 'axios';
         align-self: center;
     }
     .modal__loader img{
-        
         width: 150px;
         height: 110px;
     }

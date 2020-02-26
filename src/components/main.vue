@@ -111,7 +111,12 @@ import axios from 'axios';
                 
             },
             closemodal() {
+                this.name = "";
+                this.phone = "";
+                this.type = "";
+                this.email = "";
                 this.success = "";
+                this.loader = false;
                 var modal = document.querySelector('.main__modal');
                 modal.style.display = "none";
             },
