@@ -3,13 +3,21 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter);
 
-import UserPage from '../components/index/UserPage.vue';
+import index from '../components/index.vue';
+import main from '../components/main.vue';
+import help from '../components/help.vue';
+import news from '../components/news.vue';
+import contacts from '../components/contacts.vue';
 const router = new VueRouter({
 routes: [
         {
             path: '/',
-            component: UserPage,
+            component: index,
             children: [
+                { path: '/', component: main },
+                { path: '/help', component: help },
+                { path: '/news', component: news },
+                { path: '/contacts', component: contacts }
             ]
         },
         // {
