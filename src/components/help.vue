@@ -80,14 +80,26 @@
                 <p class="help__title">Отзывы</p>
                 <div class="help__videos">
                   
-                    <div class="help__video"><iframe width="250" height="150" src="https://www.youtube.com/embed/FFVLdzNzGzI"></iframe></div>
+                    <div class="help__video">
+                        <iframe width="250" height="150" src="https://www.youtube.com/embed/FFVLdzNzGzI"></iframe>
+                        <div class="help__video_line"></div>
+                    </div>
                   
                   
-                    <div class="help__video"><iframe width="250" height="150" src="https://www.youtube.com/embed/TgPfFJRWGrA"></iframe></div>
+                    <div class="help__video">
+                        <iframe width="250" height="150" src="https://www.youtube.com/embed/TgPfFJRWGrA"></iframe>
+                        <div class="help__video_line"></div>
+                    </div>
     
-                    <div class="help__video"><iframe width="250" height="150" src="https://www.youtube.com/embed/5LBgfeSHHXQ"></iframe></div>
+                    <div class="help__video">
+                        <iframe width="250" height="150" src="https://www.youtube.com/embed/5LBgfeSHHXQ"></iframe>
+                        <div class="help__video_line"></div>
+                    </div>
                  
-                    <div class="help__video"><iframe width="250" height="150" src="https://www.youtube.com/embed/yuQEY3AXgV8"></iframe></div>
+                    <div class="help__video">
+                        <iframe width="250" height="150" src="https://www.youtube.com/embed/yuQEY3AXgV8"></iframe>
+                        <div class="help__video_line"></div>
+                    </div>
 
                 </div>
             </div>
@@ -148,15 +160,16 @@ import myVideo from 'vue-video';
          margin-bottom: 20px;
     }
     .help__items {
-        width: 950px;
+       
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        
     }   
     .help__item {
         width: 200px;
         border-radius: 5px;
         margin-bottom: 20px;
+        margin-right: 15px;
         background-color: white;
         padding: 30px; 
      
@@ -199,22 +212,31 @@ import myVideo from 'vue-video';
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+
          
               
     }
    
      .help__video {
-        
-         width: 300px;
-         display: flex;
-         justify-content: center;
-         background-color: white;
-         margin-bottom: 20px;
-         border-bottom: 10px solid var(--main-a-hover-color);
-
+        width: 300px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        margin-bottom: 20px;
         padding: 5px;
-         
+        padding-top: 30px;
+        padding-bottom: 40px;
+        border-radius: 5px;
      }
+    .help__video_line { 
+        height: 3px;
+        width: 250px;
+        border-radius: 40px;
+        background-color: var(--main-a-hover-color);
+    }
     .help__video video {
      
         width:100%;
@@ -233,6 +255,7 @@ import myVideo from 'vue-video';
          }
         .help__item {
              width: 270px;
+             margin-right: 0;
          }
          .help__title {
              align-self: flex-start;
@@ -261,6 +284,9 @@ import myVideo from 'vue-video';
              width: 220px;
         }
         .help__video {
+            width: 270px;
+        }
+        .help__video_line {
             width: 270px;
         }
     }

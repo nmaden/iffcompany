@@ -740,6 +740,15 @@ import axios from 'axios';
         .inner__input {
             width: 240px;
         }
+        .sidebar__head_title {
+            justify-content: flex-start;
+        }
+        .sidebar__head_title p {
+            margin-right: 10px;
+        }
+        .sidebar__head_title i {
+            margin-left: 80px;
+        }
     }
 
  
