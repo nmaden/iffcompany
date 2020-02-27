@@ -89,7 +89,7 @@
                         <p>© 2020 Частная школа «Akeac»</p>
                         <!-- <i class="fab fa-instagram"></i> -->
                         <!-- https://www.instagram.com/encode.kz/ -->
-                        <a href="#" target="_blank">Сайт разработан  в &nbsp encode.kz</a>
+                        <a href="#" target="_blank">Сайт разработан  в encode.kz</a>
                     </div>
                 </div>
     </div>
