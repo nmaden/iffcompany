@@ -14,16 +14,27 @@
                               
                             </div>
                             <div>
+                                
+                            <p class="error">{{this.errors.name}}</p>
                             <p class="label">Имя</p>
-                            <input class="inner__input" type="text" placeholder="Введите имя" v-model="name">
-
-                            <p class="label">Телефон</p>
-                            <vue-tel-input v-model="phone" placeholder="" enabledCountryCode="true" defaultCountry='Kazakhstan' class="modal__phone"></vue-tel-input>
+                            <input class="inner__input" type="text"  @change ="checkname()"  placeholder="Введите имя" v-model="name">
                             
+                            
+                            <p class="error">{{this.errors.phone}}</p>
+                            <p class="label">Телефон</p>
+                            <!-- <vue-tel-input v-model="phone" placeholder="" @change ="checkphone()"  enabledCountryCode="true" defaultCountry='Kazakhstan' class="modal__phone"></vue-tel-input>
+                             -->
+                            <input class="inner__input" @change ="checkphone()"  type="text" placeholder="Введите телефон" v-model="phone">
+                                    
+                            
+                            <p class="error">{{this.errors.type}}</p>
                             <p class="label">Тип курса</p>
-                            <input type="text"  class="inner__input" v-model="type">
+                            <input type="text" @change="checktype()" class="inner__input" v-model="type">
+                            
+
+                            <p class="error">{{this.errors.email}}</p>
                             <p class="label">Email</p>
-                            <input type="email"  class="inner__input" v-model="email" placeholder="Введите электронную почту">
+                            <input type="email"  @change="checkemail()"  class="inner__input" v-model="email" placeholder="Введите электронную почту">
                             <button class="button" @click="sendData"><p class="button__text">Записаться</p></button>
                             </div>
  
@@ -95,12 +106,17 @@ import axios from 'axios';
             return {
                 show: false,
                 phone: '',
-                errors: [],
                 name: '',
                 type: '',
                 email: '',
                 success: '',
-                loader: false
+                loader: false,
+                errors: {
+                    name: '',
+                    phone: '',
+                    email: '',
+                    type: ''
+                }
             };
         },
         methods: {
@@ -120,14 +136,46 @@ import axios from 'axios';
                 var modal = document.querySelector('.main__modal');
                 modal.style.display = "none";
             },
+            validationEmail(email) {
+                const expression = /(?!.*\.{2})^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+                return expression.test(String(email).toLowerCase());
+            },
+            checkname() {
+                  this.errors.name = "";
+            },
+            checktype() {
+                  this.errors.type = "";
+            },
+            checkemail() {
+                  this.errors.email = "";
+            },
+            checkphone() {
+                  this.errors.phone = "";
+            },
             sendData() {
-                    var param = {
-                        name: this.name,
-                        phone: this.phone,
-                        type: this.type,
-                        email: this.email
-                        
-                    };
+                    
+                    if(this.name=='') {
+                        this.errors.name = "Заполните поле имя";
+                    }
+                    else if(this.phone=='') {
+                        this.errors.phone = "Введите номер телефона";
+                    }
+                    else if(this.type=='') {
+                        this.errors.type  = "Заполните  поле вопрос";
+                    }
+                    else if(this.email=='') {    
+                        this.errors.email = "Заполните  поле email";
+                    }
+                    else if(!this.validationEmail(this.email)) { 
+                        this.errors.email = "Неправильный адрес эл. почты";
+                    }
+                    else {
+                         var param = {
+                            name: this.name,
+                            phone: this.phone,
+                            type: this.type,
+                            email: this.email
+                         };
                     this.loader = true;
                     axios({
                         method: 'post',
@@ -139,8 +187,7 @@ import axios from 'axios';
                             this.success = "Ваша заявка отправлена, ожидайте ответа мы вам позвоним";
                         }
                     });
-                           
-                 
+                    }
 
         }
     }

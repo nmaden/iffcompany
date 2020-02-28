@@ -37,7 +37,7 @@
                 </div>
                 <div class="sidebar__contacts">
                     <p>Актобе</p>
-                    <div><i class="fas fa-phone-alt"></i><p>+7‒700‒151‒43‒31</p></div>
+                    <div><a href="tel:77001514331"><i class="fas fa-phone-alt"></i><p>+7‒700‒151‒43‒31</p></a></div>
                     <div><i class="fas fa-map-marker-alt"></i><p>​101-й стрелковой бригады, 6а​</p></div>
                 </div>
                    
@@ -130,12 +130,6 @@ import axios from 'axios';
             btn() {
                 this.show = true;  
             },
-            errormsg($msg) {
-                this.$modal.show('dialog', {
-                    text: $msg,
-                    buttons: [{ title: 'Закрыть' }],
-                });
-            },
             validationEmail(email) {
                 const expression = /(?!.*\.{2})^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
                 return expression.test(String(email).toLowerCase());
@@ -149,16 +143,13 @@ import axios from 'axios';
             checkemail() {
                   this.errors.email = "";
             },
-             checkphone() {
+            checkphone() {
                   this.errors.phone = "";
             },
             sendData() {
    
-                    var today = new Date();
-                    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
                     if(this.name=='') {
                         this.errors.name = "Заполните поле имя";
-                        this.errors.name = time;
                     }
                     else if(this.phone=='') {
                         this.errors.phone = "Введите номер телефона";
@@ -391,7 +382,11 @@ import axios from 'axios';
          align-items: flex-start;
         
          margin-bottom: 10px;
-
+    }
+    .sidebar__contacts div a {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
     }
     .sidebar__contacts p {
         color: var(--main-project-color);
