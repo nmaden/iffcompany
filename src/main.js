@@ -3,19 +3,19 @@ import App from './App.vue';
 import router from './router';
 import VueCookies from 'vue-cookies'
 
-import VModal from 'vue-js-modal'
+import VModal from 'vue-js-modal';
+
+Vue.use(VModal, { dialog: true });
 import Vodal from 'vodal';
 import VueI18n from 'vue-i18n';
-import VueExpandPanel from 'vue-expand-panel'
-import VueTelInput from 'vue-tel-input'
-import axios from 'axios'
+import VueExpandPanel from 'vue-expand-panel';
+import VueTelInput from 'vue-tel-input';
+import axios from 'axios';
 
-Vue.use(axios)
+Vue.use(axios);
 // import styles
-import 'vue-expand-panel/dist/vue-expand-panel.css'
  
 // mount with global
-Vue.use(VModal, { dynamic: true, injectModalsContainer: true })
 Vue.use(VueI18n);
 Vue.use(VueExpandPanel);
 Vue.use(VueTelInput);
