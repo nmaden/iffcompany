@@ -37,7 +37,7 @@
                 </div>
                 <div class="sidebar__contacts">
                     <p>Актобе</p>
-                    <div><a href="tel:77001514331"><i class="fas fa-phone-alt"></i><p>+7‒700‒151‒43‒31</p></a></div>
+                    <div><a href="tel:87001514331"><i class="fas fa-phone-alt"></i><p>+7‒700‒151‒43‒31</p></a></div>
                     <div><i class="fas fa-map-marker-alt"></i><p>​101-й стрелковой бригады, 6а​</p></div>
                 </div>
                    
