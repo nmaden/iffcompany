@@ -5,11 +5,11 @@
             <p>​Aдрес:ул. 101-й стрелковой бригады, 6а​</p>
             <div>
                  <p>Школа английского языка</p>
-            <p>+7(700) 1 514 331</p>
+                 <a href="tel:+7(700) 1 514 331">+7(700) 1 514 331</a>
             </div>
            
             <p>Почта</p>
-            <p>akeac.kz@gmail.com</p>
+            <a href="mailto:akeac.kz@gmail.com">akeac.kz@gmail.com</a>
         </div>
 
         <div class="contacts__right">
@@ -46,8 +46,12 @@
         
         padding: 5px;
     }
-    .contacts__left p {
+    .contacts__left p, .contacts__left a {
         margin-bottom: 10px;
+    }
+    .contacts__left a {
+        text-decoration: none;
+        color: black;
     }
     .contacts__left:hover,.contacts__right:hover {
       
@@ -60,13 +64,11 @@
         transition: transform .2s; /* Animation */
     }
     .contacts__right img:hover {
-         transform: scale(1.2);
-         
+         transform: scale(1.2);    
     }
 
     
-     @media screen and (max-width: 600px) {
-
+    @media screen and (max-width: 600px) {
          .contacts {
              width: 100%;
              flex-direction: column;
