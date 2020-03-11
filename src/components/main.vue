@@ -205,8 +205,8 @@ import axios from 'axios';
         align-self: flex-start;
         font-size: 25px;
         margin-left: 45px;
-        margin-top: 30px;
-        margin-bottom: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
     .feedback {
          background-color: white;
@@ -218,6 +218,7 @@ import axios from 'axios';
         flex-wrap: wrap;
         justify-content: space-between;
         margin-left: 20px;
+        margin-bottom: 100px;
     }
 
     .courses__list_item {
