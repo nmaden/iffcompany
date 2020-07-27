@@ -4,20 +4,22 @@
                 <div class="sidebar__head">
                     
                     <div class="sidebar__head_title">
-                        <img src="../assets/images/logo.jpg" alt="">
-                        <p>Akeac</p>
-                        <i class="fas fa-times" @click="closemenu"></i>
+                        <i class="fas fa-home sidebar__icon"></i>
+                        <p>Поотребительский кооператив "I.F.F.Company"</p>
+                        <i class="fas fa-times sidebar__closeicon"  @click="closemenu"></i>
                     </div>
                     <div class="sidebar__social">
-                            <a href="https://www.instagram.com/akeac/" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="https://wa.me/+77081164713/" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                            <a href="https://t.me/ErlanDiana" target="_blank"><i  class="fas fa-paper-plane"></i></a>
+                            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://wa.me/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://t.me" target="_blank"><i  class="fas fa-paper-plane"></i></a>
                     </div>
                 </div>
                 <div class="sidebar__menu_mobile">
                     <hr>
-                    <div @click="closemenu" ><router-link  to="/" class="routerLink"><i class="fas fa-graduation-cap"></i>Наши курсы</router-link></div>
-                    <div @click="closemenu"><router-link   to="/help" class="routerLink"><i class="fab fa-accusoft"></i>Почему мы?</router-link></div>
+                    <div @click="closemenu" ><router-link  to="/" class="routerLink"><i class="fas fa-graduation-cap"></i>Наши  преимущества</router-link></div>
+                    <div @click="closemenu"><router-link   to="/help" class="routerLink"><i class="fab fa-accusoft"></i>О нас</router-link></div>
+                    <div @click="closemenu"><router-link   to="/news" class="routerLink"><i class="far fa-newspaper"></i>Войти в личный кабинет</router-link></div>
+                    <div @click="closemenu"><router-link   to="/admin-only" class="routerLink"><i class="far fa-newspaper"></i>Пользователи</router-link></div>
                     <div @click="closemenu"><router-link   to="/news" class="routerLink"><i class="far fa-newspaper"></i>Новости</router-link></div>
                     <!-- <router-link class="routerLink"><i class="fas fa-info-circle"></i>О Компании</router-link> -->
                     <div @click="closemenu"><router-link  to="/contacts" class="routerLink"><i class="fas fa-paper-plane"></i>Контакты</router-link></div>
@@ -27,18 +29,22 @@
                 <div class="sidebar__menu">
                     <hr>
                     
-                    <div><router-link  to="/" class="routerLink"><i class="fas fa-graduation-cap"></i>Наши курсы</router-link></div>
-                    <div><router-link   to="/help" class="routerLink"><i class="fab fa-accusoft"></i>Почему мы?</router-link></div>
-                    <div><router-link   to="/news" class="routerLink"><i class="far fa-newspaper"></i>Новости</router-link></div>
-                    <!-- <router-link class="routerLink"><i class="fas fa-info-circle"></i>О Компании</router-link> -->
-                    <div><router-link  to="/contacts" class="routerLink"><i class="fas fa-paper-plane"></i>Контакты</router-link></div>
-                  
+                        <div><i class="fas fa-graduation-cap"></i><router-link  to="/" class="routerLink">Наши  преимущества</router-link></div>
+                        <div><i class="fab fa-accusoft"></i><router-link   to="/help" class="routerLink">О нас</router-link></div>
+                        <div><i class="fas fa-user-circle"></i><router-link   to="/login" class="routerLink">Войти в личный кабинет</router-link></div>
+                        <div  v-if="role==1 || role==2"><i class="far fa-address-card"></i><router-link   to="/admin-only" class="routerLink">Cписок пайщиков</router-link></div>
+                        <div  v-if="role==5 "><i class="far fa-address-card"></i><router-link   to="/user-only" class="routerLink">Личный кабинет</router-link></div>
+                        <div><i class="far fa-newspaper"></i><router-link   to="/news" class="routerLink">Новости</router-link></div>
+                        <div><i class="far fa-comment-dots"></i><router-link   to="/feedback" class="routerLink">Отзывы пайщиков</router-link></div>
+                        <!-- <router-link class="routerLink"><i class="fas fa-info-circle"></i>О Компании</router-link> -->
+                        <div><i class="fas fa-paper-plane"></i><router-link  to="/contacts" class="routerLink">Контакты</router-link></div>
+                    
                     <hr>
                 </div>
                 <div class="sidebar__contacts">
-                    <p>Актобе</p>
-                    <div><a href="tel:87001514331"><i class="fas fa-phone-alt"></i><p>+7‒700‒151‒43‒31</p></a></div>
-                    <div><i class="fas fa-map-marker-alt"></i><p>​101-й стрелковой бригады, 6а​</p></div>
+                    <!-- <p>Актобе</p> -->
+                    <div><a href="tel:87773620777"><i class="fas fa-phone-alt"></i><p>+7‒777 362 0777</p></a></div>
+                    <div><i class="fas fa-map-marker-alt"></i><p>​101-й стрелковой бригады</p></div>
                 </div>
                    
              </div>
@@ -64,7 +70,7 @@
                                     <img src="../assets/images/loader.gif" alt="">
                                 </div>
                                 <p class="inner__success">{{this.success}}</p>
-                                <p class="inner__text inner__header">Появились вопросы или хотите консультацию ?</p>
+                                <p class="inner__text inner__header">Зарегистрировать нового пользователя</p>
                               
                             </div>
                             <div>
@@ -92,12 +98,12 @@
                     </div>
                    
                     <router-view></router-view>
-                    <div class="footer">
-                        <p>© 2020 Частная школа «Akeac»</p>
+                    <!-- <div class="footer">
+                        <p>© 2020 ТОО "AAA"</p> -->
                         <!-- <i class="fab fa-instagram"></i> -->
                         <!-- https://www.instagram.com/encode.kz/ -->
-                        <a href="https://www.instagram.com/encode.kz/" target="_blank">Сайт разработан  в encode.kz</a>
-                    </div>
+<!--                         
+                    </div> -->
                 </div>
     </div>
 </template>
@@ -110,7 +116,7 @@ import axios from 'axios';
             return {
                 show: false,
                 phone: '',
-            
+                role: null,
                 name: '',
                 type: '',
                 email: '',
@@ -210,14 +216,32 @@ import axios from 'axios';
               
                 menu.style.transition = ".5s";
                 menu.style.left = "-320px";
+            },
+            get_roles() {
+                axios.post('http://127.0.0.1:8000/api/v1/user/me',
+               )
+                .then(response => {
+                    this.role = response.data.roles[0].id;
+                })
+                .catch(error => {
+                   console.log(error);
+                });
             }
            
-        }
+        },
+        mounted() {
+            this.get_roles();
+        },
+        watch: {
+            '$route'() {
+                this.get_roles();
+            }
+        },
           
           
     }
 </script>
-<style>
+<style scoped>
 
     .body {
         width: 100%;
@@ -300,16 +324,23 @@ import axios from 'axios';
     .sidebar__head_title img {
             width: 60px;
             height: 60px;
+
     }
     
     .sidebar__head_title p {
+        margin-left: 10px;
         color: var(--main-project-color);
         font-size: 18px;
         font-weight: 600;
     }
     
+    .sidebar__icon  {
+         font-size: 30px;
+    }
+    
    
-    .sidebar__head_title i{
+    .sidebar__closeicon {
+       
         display: none;
     }
     .sidebar__head div i {
@@ -327,7 +358,10 @@ import axios from 'axios';
     .sidebar__menu div, .sidebar__menu_mobile div {
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: flex-start;   
+        width: 280px;
+
     }
     .sidebar__menu i,.sidebar__menu_mobile i {
           display: flex;
@@ -356,7 +390,8 @@ import axios from 'axios';
         justify-content: flex-start;
         align-items: flex-start;
     }
-    .sidebar__menu a:hover>i, .sidebar__menu_mobile a:hover>i {
+
+    .sidebar__menu div:hover i, .sidebar__menu_mobile div:hover i {
         color: var(--main-a-hover-color);
     }
     .sidebar__menu a:hover,.sidebar__menu_mobile a:hover  {
@@ -404,7 +439,6 @@ import axios from 'axios';
         justify-content: space-between;
         align-items: center;
         background-color: white;
-        width: 1020px;
         height: 120px;
     }
     .mainViewRouter__hello .fa-bars {

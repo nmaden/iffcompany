@@ -2,18 +2,18 @@
     <div class="contacts">
         <div class="contacts__left">
 
-            <p>​Aдрес:ул. 101-й стрелковой бригады, 6а​</p>
+            <p>​Aдрес:ул. 101-й стрелковой бригады​</p>
             <div>
-                 <p>Школа английского языка</p>
-                 <a href="tel:+7(700) 1 514 331">+7(700) 1 514 331</a>
+                 <p>ТОО "ААА"</p>
+                 <a href="tel:+7‒777 362 0777">+7‒777 362 0777</a>
             </div>
            
             <p>Почта</p>
-            <a href="mailto:akeac.kz@gmail.com">akeac.kz@gmail.com</a>
+            <a href="mailto:too.kz@gmail.com">too.kz@gmail.com</a>
         </div>
 
         <div class="contacts__right">
-            <img src="../assets/images/akeac.jpg" alt="">
+            <!-- <img src="../assets/images/akeac.jpg" alt=""> -->
         </div>
 
     </div>

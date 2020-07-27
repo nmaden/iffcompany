@@ -10,9 +10,16 @@ import Vodal from 'vodal';
 import VueI18n from 'vue-i18n';
 import VueExpandPanel from 'vue-expand-panel';
 import VueTelInput from 'vue-tel-input';
-import axios from 'axios';
+import VueSimpleAlert from "vue-simple-alert";
 
-Vue.use(axios);
+
+Vue.use(VueSimpleAlert);
+
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+
+Vue.use(VueAxios, axios)
+
 // import styles
  
 // mount with global
@@ -23,7 +30,13 @@ Vue.config.productionTip = false;
 Vue.use(VueCookies);
 
 
+if(localStorage.getItem("access_token")!='') {
 
+  axios.defaults.headers.common = {
+    "Authorization": "Bearer "+localStorage.getItem('access_token')
+  };
+
+}
 
 
 Vue.component(Vodal.name, Vodal);

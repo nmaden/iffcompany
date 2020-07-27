@@ -40,59 +40,84 @@
  
                         </div>
                     </div>
-            <p class="main__title">Наши курсы</p>
+            <p class="main__title">Наши  преимущества</p>
                     <div class="courses__list">
                         
                         <div class="courses__list_item">
                               <div class="courses__list_top top__text">
                                 <!-- <p  class="top__text-title">Улучшение разговорных навыков</p> -->
-                                <p  class="top__text-type">Курсы базового английского</p>
-                                <p  class="top__text-level"><i class="fas fa-layer-group"></i>от начального до продвинутого уровня; </p>
+                                <p  class="top__text-type">Процентная ставка и коммиссия 0%</p>
+                                <!-- <p  class="top__text-level"><i class="fas fa-layer-group"></i>от начального до продвинутого уровня; </p>
                                 <p  class="top__text-duration"><i class="fas fa-calendar-alt"></i> 3-4 месяца</p>
-                                <p  class="top__text-time"><i class="fas fa-clock"></i>3 раза в неделю по 90 мин</p>
+                                <p  class="top__text-time"><i class="fas fa-clock"></i>3 раза в неделю по 90 мин</p> -->
+
+                                <div class="courses__circle">
+                                    <div class="courses__checked">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <i class="fas fa-percent courses__icon" ></i>
+                                </div>
                             </div>
-                            <div class="courses__list_bottom">
+                            <!-- <div class="courses__list_bottom">
                                 <button @click="openmodals('Курсы базового английского')"><p>Записаться</p></button>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="courses__list_item">
                             <div class="courses__list_top top__text">
                                 <!-- <p class="top__text-title">Навыки делового обшения</p> -->
-                                <p class="top__text-type">Интенсивные курсы по подготовке к международному тесту IELTS </p>
+                                <p class="top__text-type">Минимальный пакет документов</p>
+                                <div class="courses__circle">
+                                    <div class="courses__checked">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <i class="fas fa-layer-group courses__icon"></i>
+                                </div>
                                 <!-- <p class="top__text-level"><i class="fas fa-layer-group"></i>Средний и продвинутый уровень</p> -->
-                                <p class="top__text-duration"><i class="far fa-calendar-alt"></i>4 недели</p>
-                                <p class="top__text-time"><i class="far fa-clock"></i>4 раза в неделю по 90 мин.</p>
+                                <!-- <p class="top__text-duration"><i class="far fa-calendar-alt"></i>4 недели</p>
+                                <p class="top__text-time"><i class="far fa-clock"></i>4 раза в неделю по 90 мин.</p> -->
                                 <!-- <p class="top__text-cost"><i class="fas fa-dollar-sign"></i>40 000 тг</p> -->
                             </div>
-                            <div class="courses__list_bottom">
+                            <!-- <div class="courses__list_bottom">
                                 <button  @click="openmodals('Интенсивные курсы по подготовке к международному тесту IELTS')"><p>Записаться</p></button>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="courses__list_item">
                             <div class="courses__list_top top__text">
                                 <!-- <p  class="top__text-title">Улучшение разговорных навыков</p> -->
-                                <p  class="top__text-type">Курсы по подготовке к IELTS </p>
+                                <p  class="top__text-type">Льготы инвалидам и неполным многодетным семьям</p>
+                                <div class="courses__circle">
+                                    <div class="courses__checked">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <i class="fas fa-user-shield courses__icon"></i>
+                                </div>
                                 <!-- <p  class="top__text-level"><i     class="fas fa-layer-group"></i>Начальный,средний и продвинутый уровень</p> -->
-                                <p  class="top__text-duration"><i  class="fas fa-calendar-alt"></i>2 месяца</p>
-                                <p  class="top__text-time"><i      class="fas fa-clock"></i>3 раза в неделю по 90 мин</p>
+                                <!-- <p  class="top__text-duration"><i  class="fas fa-calendar-alt"></i>2 месяца</p>
+                                <p  class="top__text-time"><i      class="fas fa-clock"></i>3 раза в неделю по 90 мин</p> -->
                                 <!-- <p  class="top__text-cost"><i      class="fas fa-dollar-sign"></i>40 000 тг</p> -->
                             </div>
-                            <div class="courses__list_bottom">
+                            <!-- <div class="courses__list_bottom">
                                 <button @click="openmodals('Курсы по подготовке к IELTS')"><p>Записаться</p></button>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="courses__list_item">
                              <div class="courses__list_top top__text">
                                 <!-- <p  class="top__text-title">Улучшение разговорных навыков</p> -->
-                                <p  class="top__text-type">Курсы медицинского английского </p>
+                                <p  class="top__text-type">Кредитная история не рассматривается</p>
+                                <div class="courses__circle">
+                                    <div class="courses__checked">
+                                        <i class="fas fa-check "></i>
+                                    </div>
+                                    <i class="fas fa-history courses__icon"></i>
+                                </div>
                                 <!-- <p  class="top__text-level"><i     class="fas fa-layer-group"></i>Начальный,средний и продвинутый уровень</p> -->
-                                <p  class="top__text-duration"><i  class="fas fa-calendar-alt"></i> 3 месяца</p>
-                                <p  class="top__text-time"><i      class="fas fa-clock"></i>3 раза в неделю по 90 мин</p>
+                                <!-- <p  class="top__text-duration"><i  class="fas fa-calendar-alt"></i> 3 месяца</p>
+                                <p  class="top__text-time"><i      class="fas fa-clock"></i>3 раза в неделю по 90 мин</p> -->
                                 <!-- <p  class="top__text-cost"><i      class="fas fa-dollar-sign"></i>40 000 тг</p> -->
                             </div>
-                            <div class="courses__list_bottom">
+                            <!-- <div class="courses__list_bottom">
                                 <button  @click="openmodals('Курсы медицинского английского')"><p>Записаться</p></button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
        
@@ -240,8 +265,11 @@ import axios from 'axios';
     .courses__list_top {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         justify-content: space-between;
+        text-align: center;
+        height: 280px;
+
     }
     .courses__list_bottom {
         display: flex;
@@ -278,9 +306,9 @@ import axios from 'axios';
     .courses__list p {
         margin-bottom: 10px;
     }
-    .courses__list i {
+    /* .courses__list i {
         margin-right: 6px;
-    }
+    } */
     .top__text-title {
         color: #ccc;
         font-size: 12px;
@@ -289,7 +317,7 @@ import axios from 'axios';
     }
     .top__text-type {
         color: black;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: bold;
     }
     
@@ -399,7 +427,43 @@ import axios from 'axios';
         font-size: 16px;
         color:#44d494;
     }
-  
+    
+    .courses__circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        color: white;
+        background-color: var(--main-a-hover-color);
+
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        position: relative;
+    }
+    .courses__circle .courses__checked {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: var(--main-project-color);
+        position: absolute;
+        right: 10px;
+        top: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .courses__checked i {
+        font-size: 15px;
+    }
+
+    .courses__circle .courses__icon {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+    }
 
 
     @media screen and (max-width: 600px) {
