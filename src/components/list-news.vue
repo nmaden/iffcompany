@@ -27,8 +27,8 @@
 
                         <div class="feedback__action">
 
-                            <!-- <i class="fas fa-pencil-alt" ></i>
-                            <i class="far fa-trash-alt" @click="delete_news(feedback.id)"></i> -->
+                            <i class="fas fa-pencil-alt" ></i>
+                            <i class="far fa-trash-alt" @click="delete_news(feedback.id)"></i>
 
                         </div>
                     </div>

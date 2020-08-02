@@ -117,7 +117,7 @@ import axios from 'axios';
                     }
                 });
                
-    },
+            },
         }
      
     }

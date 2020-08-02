@@ -1,19 +1,19 @@
 <template>
-    <div class="contacts">
+    <div class="contactss">
         <div class="contacts__left">
 
-            <p>​Aдрес:ул. 101-й стрелковой бригады​</p>
+            <p>​Aдрес:ул. Газиза Жубанова 3Ж​</p>
             <div>
                  <p>ТОО "ААА"</p>
-                 <a href="tel:+7‒777 362 0777">+7‒777 362 0777</a>
+                 <a href="tel:8(747)362-80-80">8(747)362-80-80</a>
             </div>
            
-            <p>Почта</p>
-            <a href="mailto:too.kz@gmail.com">too.kz@gmail.com</a>
+            <p>Whatsapp</p>
+            <a href="wa.me/77473628080">wa.me/77473628080</a>
         </div>
 
         <div class="contacts__right">
-            <!-- <img src="../assets/images/akeac.jpg" alt=""> -->
+            <img src="../assets/images/card.png" alt="">
         </div>
 
     </div>
@@ -22,7 +22,7 @@
 
 <style>
 
-    .contacts {
+    .contactss {
         display: flex;
         flex-direction: row;
         justify-content: space-around;

@@ -5,6 +5,12 @@
 		},
 		{
 			"path": "../.."
+		},
+		{
+			"path": "../../../../../../../Applications/MAMP/htdocs/eqonaq_back"
+		},
+		{
+			"path": "../../../../eqonaq2spa"
 		}
 	],
 	"settings": {}

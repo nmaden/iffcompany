@@ -227,8 +227,9 @@ import axios from 'axios';
         width: 100%;
     }
     .main__title {
-        align-self: flex-start;
-        font-size: 25px;
+        align-self: center;
+        font-weight: bold;
+        font-size: 20px;
         margin-left: 45px;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -241,7 +242,7 @@ import axios from 'axios';
     .courses__list {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-evenly;
         margin-left: 20px;
         margin-bottom: 100px;
     }
@@ -255,6 +256,7 @@ import axios from 'axios';
         width: 190px;
         padding: 20px;
         margin-right: 10px;
+        margin-bottom: 40px;
      
         height: 350px;
         -webkit-box-shadow: 1px 1px 1px 1px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
