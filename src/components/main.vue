@@ -321,6 +321,7 @@ import axios from 'axios';
         color: black;
         font-size: 16px;
         font-weight: bold;
+        color: var(--main-project-color);
     }
     
     .main__modal {

@@ -69,7 +69,7 @@
 
     
     @media screen and (max-width: 600px) {
-         .contacts {
+         .contacts,.contactss {
              width: 100%;
              flex-direction: column;
              margin-bottom: 70px;

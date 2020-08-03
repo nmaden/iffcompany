@@ -1,6 +1,6 @@
     :root {
-        --main-project-color: #013763;
-        --main-a-hover-color: #b32421;
+        --main-project-color: #409dfa;
+        --main-a-hover-color: #409dfa;
         --main-white-color:  #ffffff;
         --main-border-color:  #f5f7fb;
         --main-user-page-color: #f5f7fb;
@@ -16,3 +16,5 @@
         --p-hover:#044e7c;
         --color-red-error: rgba(155, 7, 7, 0.9);
     }
+
+    /* #013763; */

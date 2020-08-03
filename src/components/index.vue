@@ -11,25 +11,30 @@
                         <i class="fas fa-times sidebar__closeicon"  @click="closemenu"></i>
                     </div>
                     <div class="sidebar__social">
-                            <a href="https://www.instagram.com/i.f.f_company/" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="wa.me/77473628080" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                            <a href="wa.me/77473628080" target="_blank"><i  class="fas fa-paper-plane"></i></a>
+                            <a href="https://www.instagram.com/pk_i.f.f_company_official/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="wa.me/77474440105" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/pk_i.f.f_company_official/" target="_blank"><i  class="fas fa-paper-plane"></i></a>
                     </div>
                 </div>
                 <div class="sidebar__menu_mobile">
                     <hr>
-                    <div @click="closemenu" ><router-link  to="/" class="routerLink"><i class="fas fa-graduation-cap"></i>Наши  преимущества</router-link></div>
-                    <div @click="closemenu"><router-link   to="/help" class="routerLink"><i class="fab fa-accusoft"></i>О нас</router-link></div>
-                    <div @click="closemenu"><router-link   to="/news" class="routerLink"><i class="far fa-newspaper"></i>Войти в личный кабинет</router-link></div>
-                   
-                    <div @click="closemenu"><router-link   to="/news" class="routerLink"><i class="far fa-newspaper"></i>Войти в личный кабинет</router-link></div>
+                        <div @click="closemenu"><i class="fas fa-graduation-cap"></i><router-link  to="/" class="routerLink">Наши  преимущества</router-link></div>
+                        <div @click="closemenu"><i class="fab fa-accusoft"></i><router-link   to="/help" class="routerLink">О нас</router-link></div>
+                        <div @click="closemenu"><i class="fas fa-user-circle"></i><router-link   to="/login" class="routerLink">Войти в личный кабинет</router-link></div>
+                        <div @click="closemenu" v-if="role==1 || role==2"><i class="far fa-address-card"></i><router-link   to="/admin-only" class="routerLink">Cписок пайщиков</router-link></div>
+                        <div @click="closemenu" v-if="role==5 "><i class="far fa-address-card"></i><router-link   to="/user-only" class="routerLink">Личный кабинет</router-link></div>
+
+                        <div @click="closemenu" v-if="role==1 || role==2"><router-link   to="/create-news" class="routerLink"><i class="fab fa-elementor"></i>Добавить новости</router-link></div>
+                        <div  @click="closemenu" v-if="role==1 || role==2"><router-link   to="/edit-news" class="routerLink"><i class="fas fa-pencil-alt"></i>Редактировать новости</router-link></div>
+                        <div  @click="closemenu" v-if="role==1 || role==2"><router-link   to="/create-feedback" class="routerLink"><i class="fab fa-elementor"></i>Добавить отзыв</router-link></div>
+
+                        <div @click="closemenu"  v-if="role==1 || role==2"><router-link   to="/list-feedback" class="routerLink"><i class="fas fa-pencil-alt"></i>Редактировать отзыв</router-link></div>
                     
+                        <div @click="closemenu" ><i class="far fa-newspaper"></i><router-link   to="/news" class="routerLink">Новости</router-link></div>
+                        <div @click="closemenu" ><i class="far fa-comment-dots"></i><router-link   to="/feedbacks" class="routerLink">Отзывы пайщиков</router-link></div>
+                        <!-- <router-link class="routerLink"><i class="fas fa-info-circle"></i>О Компании</router-link> -->
+                        <div @click="closemenu"> <i class="fas fa-paper-plane"></i><router-link  to="/contacts" class="routerLink">Контакты</router-link></div>
                     
-                    <div @click="closemenu"><router-link   to="/admin-only" class="routerLink"><i class="far fa-newspaper"></i>Пользователи</router-link></div>
-                    <div @click="closemenu"><router-link   to="/news" class="routerLink"><i class="far fa-newspaper"></i>Новости</router-link></div>
-                    <!-- <router-link class="routerLink"><i class="fas fa-info-circle"></i>О Компании</router-link> -->
-                    <div @click="closemenu"><router-link  to="/contacts" class="routerLink"><i class="fas fa-paper-plane"></i>Контакты</router-link></div>
-                  
                     <hr>
                 </div>
                 <div class="sidebar__menu">
@@ -56,7 +61,7 @@
                 </div>
                 <div class="sidebar__contacts">
                     <!-- <p>Актобе</p> -->
-                    <div><a href="tel:8(747)362-80-80"><i class="fas fa-phone-alt"></i><p>8(747)362-80-80</p></a></div>
+                    <div><a href="wa.me/77474440105"><i class="fas fa-phone-alt"></i><p>8(747)-444-01-05</p></a></div>
                     <div><i class="fas fa-map-marker-alt"></i><a target="_blank" href="https://2gis.kz/aktobe/geo/70030076156811315?m=57.179039%2C50.283132%2F16">​Газиза Жубанова 3Ж</a></div>
                 </div>
                    
@@ -68,9 +73,9 @@
                         <i class="fas fa-bars fa-2x" @click="openmenu"></i>
                         
                         <div class="mainViewRouter__social">
-                            <a href="https://www.instagram.com/akeac/" target="_blank"><i class="fab fa-instagram"><p>Instagram</p></i></a>
-                            <a href="https://wa.me/77081164713/" target="_blank"><i class="fab fa-whatsapp"><p>Whatsapp</p></i></a>
-                            <a href="https://t.me/ErlanDiana" target="_blank"><i  class="fas fa-paper-plane"><p>Telegram</p></i></a>
+                            <a href="https://www.instagram.com/pk_i.f.f_company_official/" target="_blank"><i class="fab fa-instagram"><p>Instagram</p></i></a>
+                            <a href="wa.me/77474440105" target="_blank"><i class="fab fa-whatsapp"><p>Whatsapp</p></i></a>
+                            <a href="https://www.instagram.com/pk_i.f.f_company_official/" target="_blank"><i  class="fas fa-paper-plane"><p>Telegram</p></i></a>
                         </div>
                         <!-- <button @click="openmodal()" id="btn">Заказать звонок</button> -->
                     </div>
@@ -706,14 +711,23 @@ import axios from 'axios';
             width: 100%;
             margin: 0;
         }
+
+        .sidebar__menu_mobile a {
+            width: 250px;
+        }
         .main__title {
             display: none;
         }
         .sidebar__head {
             height: 280px;
         }
+        .sidebar__head_title {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
         .sidebar__head_title p {
-            font-size: 22px;
+            font-size: 14px;
         }
         .sidebar__social a {
             margin-right: 7px;
@@ -820,7 +834,7 @@ import axios from 'axios';
         .sidebar__head_title {
             display: flex;
             justify-content: space-between;
-            width: 220px;
+            width: 240px;
         }
         .sidebar__head_title i{
             font-size: 28px;

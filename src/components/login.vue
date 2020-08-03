@@ -107,7 +107,9 @@ import axios from 'axios';
         background-color: white;
 
     }
+
     .sign__title {
+        color: #409dfa;
         font-weight: bold;
         font-size: 16px;
         margin-bottom: 20px;
@@ -137,7 +139,7 @@ import axios from 'axios';
         border: none;
         
         width: 100%;
-        background-color: #b30000;
+        background-color: #409dfa;
         padding: 10px;
         color: white;
     }
