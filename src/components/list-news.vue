@@ -113,7 +113,7 @@ import axios from 'axios';
             },
             get_image_url(host,image) {
                 if(image!="") {
-                    return "http://127.0.0.1:8000"+image;
+                    return process.env.VUE_APP_BACK_END.substring(0,process.env.VUE_APP_BACK_END.length-1)+image;
                 }
             },
             get_by_url(url) {
@@ -141,7 +141,7 @@ import axios from 'axios';
                 });
             },
             get_news() {
-                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/get/news',
+                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'guest/get/news',
                 {
                     
                 })

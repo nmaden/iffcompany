@@ -282,6 +282,54 @@ import axios from 'axios';
     }
 
  
+    @media screen and (max-width: 600px) {
+         .calculation {
+             width: 100%;
+             flex-direction: column;
+             align-items: center;
+           
+             .calculation__top {
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                div {
+                    width: 300px;
+                    align-self: center;
+                 
+                }
+                input {
+                    padding: 30px;
+                }
+                p {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+                }
+                button {
+                       width: 300px;
+                       font-size: 20px;
+                }
+             }
+             .calculation__table {
+                 display: flex;
+                 flex-direction: column;
+                max-width: 100%!important;
+min-width: 100% !important;
+                overflow-x: scroll;
+             }
+             .calculation__row--head {
+     
+            
+             }
+             .calculation__row {
+           
+             }
+         }
+
+      }
+
+
+ 
 
 
     

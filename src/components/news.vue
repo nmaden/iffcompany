@@ -1,7 +1,7 @@
 <template>
     <div class="feedback">
 
-        
+        <p  class="feedback__title">Новости</p>
         <div v-if="news!=null" style="width: 92%" class="news__items">
                 <div class="feedback__column" v-for="(feedback,index) in news" :key="index"  >
                     <!-- <iframe width="94%" height="315"
@@ -113,7 +113,7 @@ import axios from 'axios';
             },
             get_image_url(host,image) {
                 if(image!="") {
-                    return "http://127.0.0.1:8000"+image;
+                    return process.env.VUE_APP_BACK_END.split(0,process.env.VUE_APP_BACK_END.length-1)+image;
                 }
             },
             get_by_url(url) {
@@ -141,7 +141,7 @@ import axios from 'axios';
                 });
             },
             get_news() {
-                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/get/news',
+                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'guest/get/news',
                 {
                     
                 })
@@ -199,6 +199,14 @@ import axios from 'axios';
         flex-direction: column;
         margin-top: 30px;
       
+    }
+
+    .feedback__title {
+        margin-top: 40px;
+        font-weight: bold;
+        font-size: 25px;
+        align-self: center;
+        margin-bottom: 20px;
     }
 
     // .feedback__column:nth-child(even) {
@@ -260,5 +268,17 @@ import axios from 'axios';
 
 
 
+
+      @media screen and (max-width: 600px) {
+          .feedback {
+              margin: 0;
+              width: 100%;
+              align-items: center;
+          }
+          .feedback__column {
+              width: 100%;
+              align-items:center;
+          }
+      }
 
 </style>

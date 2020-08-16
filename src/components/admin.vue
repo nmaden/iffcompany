@@ -787,6 +787,25 @@ import axios from 'axios';
         }
     }
 
+
+    @media screen and (max-width: 600px) {
+            .main {
+                margin: 0;
+                width: 100%;
+                 .main__buttons {
+                    width: 100%;
+                    flex-direction: column;
+                    align-items:center;
+                
+                }
+                .list__table {
+                    width: 100%;
+                    overflow-x: scroll;
+                }
+            }
+           
+    }
+
    
   
 

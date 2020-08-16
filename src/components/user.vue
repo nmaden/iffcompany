@@ -406,4 +406,30 @@ import axios from 'axios';
         }
     }
      
+
+         @media screen and (max-width: 600px) {
+             .user__welcome {
+                 width: 100% !important;
+             }
+             .main {
+                  width: 100%;
+             }
+            .user__agreement {
+                flex-direction: column !important;
+                align-items: center;
+            }
+        
+                .user__start {
+                    width: 90% !important;
+                    margin-bottom: 20px !important;
+                }
+            .list__head {
+                width: 100%;
+            }
+            .list__table {
+                width: 100%;
+                overflow-x: scroll;
+            }
+         
+        }
 </style>

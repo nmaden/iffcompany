@@ -34,7 +34,7 @@
                         <div @click="closemenu" ><i class="far fa-comment-dots"></i><router-link   to="/feedbacks" class="routerLink">Отзывы пайщиков</router-link></div>
                         <!-- <router-link class="routerLink"><i class="fas fa-info-circle"></i>О Компании</router-link> -->
 
-                        <div  @click="closemenu"><i class="fas fa-paper-plane"></i><router-link  to="/calculation" class="routerLink">Калькулятор</router-link></div>
+                        <div  @click="closemenu"><i class="fas fa-calculator"></i><router-link  to="/calculation" class="routerLink">Калькулятор</router-link></div>
                         <div @click="closemenu"> <i class="fas fa-paper-plane"></i><router-link  to="/contacts" class="routerLink">Контакты</router-link></div>
                     
                     <hr>
@@ -59,7 +59,7 @@
                         <!-- <router-link class="routerLink"><i class="fas fa-info-circle"></i>О Компании</router-link> -->
 
 
-                        <div><i class="far fa-newspaper"></i><router-link  to="/calculation" class="routerLink">Калькулятор</router-link></div>
+                        <div><i class="fas fa-calculator"></i><router-link  to="/calculation" class="routerLink">Калькулятор</router-link></div>
                         <div><i class="fas fa-paper-plane"></i><router-link  to="/contacts" class="routerLink">Контакты</router-link></div>
                     
                     <hr>
@@ -723,10 +723,19 @@ import axios from 'axios';
 
   
      @media screen and (max-width: 600px) {
-       
+        
+        .mainViewRouter__phone {
+            display: none;
+        }
         .mainViewRouter {
             width: 100%;
             margin: 0;
+        }
+        .mainViewRouter__hello {
+            flex-direction: column;
+        }
+        .mainViewRouter__hello i {
+            align-self: flex-start;
         }
 
         .sidebar__menu_mobile a {
