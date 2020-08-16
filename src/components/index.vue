@@ -33,6 +33,8 @@
                         <div @click="closemenu" ><i class="far fa-newspaper"></i><router-link   to="/news" class="routerLink">Новости</router-link></div>
                         <div @click="closemenu" ><i class="far fa-comment-dots"></i><router-link   to="/feedbacks" class="routerLink">Отзывы пайщиков</router-link></div>
                         <!-- <router-link class="routerLink"><i class="fas fa-info-circle"></i>О Компании</router-link> -->
+
+                        <div  @click="closemenu"><i class="fas fa-paper-plane"></i><router-link  to="/calculation" class="routerLink">Калькулятор</router-link></div>
                         <div @click="closemenu"> <i class="fas fa-paper-plane"></i><router-link  to="/contacts" class="routerLink">Контакты</router-link></div>
                     
                     <hr>
@@ -55,6 +57,9 @@
                         <div ><i class="far fa-newspaper"></i><router-link   to="/news" class="routerLink">Новости</router-link></div>
                         <div ><i class="far fa-comment-dots"></i><router-link   to="/feedbacks" class="routerLink">Отзывы пайщиков</router-link></div>
                         <!-- <router-link class="routerLink"><i class="fas fa-info-circle"></i>О Компании</router-link> -->
+
+
+                        <div><i class="far fa-newspaper"></i><router-link  to="/calculation" class="routerLink">Калькулятор</router-link></div>
                         <div><i class="fas fa-paper-plane"></i><router-link  to="/contacts" class="routerLink">Контакты</router-link></div>
                     
                     <hr>
@@ -78,6 +83,12 @@
                             <a href="https://www.instagram.com/pk_i.f.f_company_official/" target="_blank"><i  class="fas fa-paper-plane"><p>Telegram</p></i></a>
                         </div>
                         <!-- <button @click="openmodal()" id="btn">Заказать звонок</button> -->
+
+
+                        
+                            <a href="tel:8(747)-444-01-05" class="mainViewRouter__phone"><i class="fas fa-phone-alt"></i> 8(747)-444-01-05</a>
+          
+                    
                     </div>
 
                     <div class="modal">
@@ -152,13 +163,10 @@ import axios from 'axios';
              
             };
         },
-        mounted() {
-            this.get_news();
-            this.get_feedback();
-        },
+       
         methods: {
             get_news() {
-                axios.get('http://127.0.0.1:8000/api/v1/user/get/news',
+                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/get/news',
                 {
                     
                 })
@@ -173,7 +181,7 @@ import axios from 'axios';
                 });
             },
             get_feedback() {
-                axios.get('http://127.0.0.1:8000/api/v1/user/get/feedback',
+                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/get/feedback',
                 {
                    
                 })
@@ -271,7 +279,7 @@ import axios from 'axios';
                 menu.style.left = "-320px";
             },
             get_roles() {
-                axios.post('http://127.0.0.1:8000/api/v1/user/me',
+                axios.post(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/me',
                )
                 .then(response => {
                     this.role = response.data.roles[0].id;
@@ -283,7 +291,12 @@ import axios from 'axios';
            
         },
         mounted() {
+            console.log("there");
+            console.log(process.env.VUE_APP_API);
+            console.log(process.env.VUE_APP_BACK_END);
             this.get_roles();
+               this.get_news();
+            this.get_feedback();
         },
         watch: {
             '$route'() {
@@ -489,10 +502,14 @@ import axios from 'axios';
     .mainViewRouter__hello {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
         background-color: white;
         height: 120px;
+    }
+    .mainViewRouter__phone {
+        color: var(--main-a-hover-color); 
+        font-size: 16px; 
     }
     .mainViewRouter__hello .fa-bars {
         display: none;

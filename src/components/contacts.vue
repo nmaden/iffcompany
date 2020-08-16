@@ -4,12 +4,9 @@
 
             <p>​Aдрес:ул. Газиза Жубанова 3Ж​</p>
             <div>
-                 <p>ТОО "ААА"</p>
-                 <a href="tel:8(747)362-80-80">8(747)362-80-80</a>
+                 <p>Поотребительский кооператив "I.F.F.Company"</p>
+                 <a href="tel:8(747)-444-01-05">8(747)-444-01-05</a>
             </div>
-           
-            <p>Whatsapp</p>
-            <a href="wa.me/77473628080">wa.me/77473628080</a>
         </div>
 
         <div class="contacts__right">
@@ -31,7 +28,7 @@
     }
 
     .contacts__left,.contacts__right {
-     
+        text-align: center;
         border-radius: 10px;
         width: 400px;
         height: 300px;

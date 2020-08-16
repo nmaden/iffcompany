@@ -125,7 +125,7 @@ import axios from 'axios';
                 }
             },
             delete_news(id) {
-                axios.post('http://127.0.0.1:8000/api/v1/user/delete/news',
+                axios.post(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/delete/news',
                 {
                     id:id
                       
@@ -141,7 +141,7 @@ import axios from 'axios';
                 });
             },
             get_news() {
-                axios.get('http://127.0.0.1:8000/api/v1/user/get/news',
+                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/get/news',
                 {
                     
                 })

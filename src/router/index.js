@@ -19,6 +19,7 @@ import listFeedbacks from '../components/feedbacks.vue';
 import createNews from '../components/create-news.vue';
 import listNews from '../components/news.vue';
 import editNews from '../components/list-news.vue';
+import calculation from '../components/calculation.vue';
 const router = new VueRouter({
     
 routes: [
@@ -39,7 +40,9 @@ routes: [
                 { path: '/create-feedback', component: createFeedback},
                 { path: '/create-news', component: createNews},
                 { path: '/list-feedback', component: listFeedback},
-                { path: '/feedbacks', component: listFeedbacks},      
+                { path: '/feedbacks', component: listFeedbacks},  
+                { path: '/calculation', component: calculation},  
+                    
             ]
         },
         // {

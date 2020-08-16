@@ -96,7 +96,7 @@ import axios from 'axios';
                 }
             },
             delete_feedback(id) {
-                axios.post('http://127.0.0.1:8000/api/v1/user/delete/feedback',
+                axios.post(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/delete/feedback',
                 {
                     id:id
                       
@@ -112,7 +112,7 @@ import axios from 'axios';
                 });
             },
             get_feedback() {
-                axios.get('http://127.0.0.1:8000/api/v1/user/get/feedback',
+                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/get/feedback',
                 {
                    
                 })

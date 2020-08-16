@@ -34,7 +34,7 @@ import axios from 'axios';
     methods: {
    
       onSubmit() {
-             axios.post('http://127.0.0.1:8000/api/v1/auth/login',
+             axios.post(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'auth/login',
                 {
                     email:this.email,
                     password: this.password
@@ -63,7 +63,7 @@ import axios from 'axios';
     },
 
      get_roles() {
-                axios.post('http://127.0.0.1:8000/api/v1/user/me',
+                axios.post(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/me',
                )
                 .then(response => {
                     console.log("roles");

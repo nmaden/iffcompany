@@ -74,7 +74,7 @@ import axios from 'axios';
             send_to_server(fd) {
 
                 
-                axios.post('http://127.0.0.1:8000/api/v1/user/upload/image/news',fd,
+                axios.post(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/upload/image/news',fd,
                     {
                         headers: {
                             'Content-Type': 'multipart/form-data'
@@ -92,7 +92,7 @@ import axios from 'axios';
             },
             send_news() {
               
-                axios.post('http://127.0.0.1:8000/api/v1/user/create/news',
+                axios.post(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/create/news',
                 {
                     title: this.feedback.title_fd,
                     description: this.feedback.text_fd,
@@ -112,7 +112,7 @@ import axios from 'axios';
                 });
             },
             onSubmit() {
-             axios.post('http://127.0.0.1:8000/api/v1/user/paysender',
+             axios.post(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/paysender',
                 {
                     name: this.register_user.name,
                     surname: this.register_user.surname,

@@ -60,7 +60,7 @@ import axios from 'axios';
         methods: {
             send_feedback() {
               
-                axios.post('http://127.0.0.1:8000/api/v1/user/send/feedback/user',
+                axios.post(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/send/feedback/user',
                 {
                     title: this.feedback.title_fd,
                     description: this.feedback.text_fd,
@@ -77,7 +77,7 @@ import axios from 'axios';
                 });
             },
             onSubmit() {
-             axios.post('http://127.0.0.1:8000/api/v1/user/paysender',
+             axios.post(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/paysender',
                 {
                     name: this.register_user.name,
                     surname: this.register_user.surname,

@@ -1,66 +1,82 @@
 <template>
+<div class="register">
+
+
     <form class="register" @submit.prevent="onSubmit">
 
         <div class="register__inner">
 
             <div>
                 <p>Фамилия</p>
-                <input type="text" v-model="register_user.surname">
+                <input type="text" v-model="register_user.surname" required>
             </div>
             <div>
                 <p>Имя</p>
-                <input type="text" v-model="register_user.name">
+                <input type="text" v-model="register_user.name" required>
             </div>
 
             <div>
                 <p>Отчества</p>
-                <input type="text" v-model="register_user.patronymic">
+                <input type="text" v-model="register_user.patronymic" required>
             </div>
 
             <div>
                 <p>ИИН</p>
-                <input type="text" v-model="register_user.iin">
+                <input type="text" v-model="register_user.iin" required>
             </div>
             <div>
                 <p>Номер документа</p>
-                <input type="text" v-model="register_user.document_number">
+                <input type="text" v-model="register_user.document_number" required>
             </div>
             <div>
                 <p>Дата выдачи (удаст.)</p>
-                <input type="date" v-model="register_user.date_of_given">
+                <input type="date" v-model="register_user.date_of_given" required>
             </div>
             <div>
                 <p>Дата окончаний (удаст.)</p>
-                <input type="date" v-model="register_user.end_of_given">
+                <input type="date" v-model="register_user.end_of_given" required>
             </div>
 
             <div>
                 <p>Дата договора</p>
-                <input type="date" v-model="register_user.date_agreement">
+                <input type="date" v-model="register_user.date_agreement" required>
             </div>
             
             <div>
                 <p>Телефон</p>
-                <input type="text" v-model="register_user.phone">
+                <input type="text" v-model="register_user.phone" required>
             </div>
+
             <div>
                 <p>Тип соглашения</p>
 
-                <select v-model="register_user.type_agreement" id="cars">
+                <select v-model="register_user.type_agreement" id="cars" required>
                     <option value="1">Первый соглашения</option>
-                    <option value="2">Второй соглашения</option>
-                    <option value="3">Третий соглашения</option>
-                    <option value="4">Четвертый соглашения</option>
+                    <option value="2">По 30%</option>
+                    <option value="3">По 50%</option>
                 </select>
+            </div>
+
+            <div>
+                <p>Сумма который должен собрать</p>
+
+                
+                <input type="text" >
             </div>
 
         </div>
 
+
+   
         <button class="register__button" type="submit">
             Создать
         </button>
-           
+       
     </form>  
+       
+    
+</div>
+    
 </template>
 
 <script>
@@ -69,6 +85,8 @@ import axios from 'axios';
     export default {
         data() {
             return {
+             
+
                 show: false,
                 phone: '',
                 errors: [],
@@ -86,14 +104,16 @@ import axios from 'axios';
                     phone: '',
                     iin: '',
                     type_agreement: '',
-                    date_agreement: ''
-
+                    date_agreement: '',
+                 
                 }
             };
         },
         methods: {
+   
+          
             onSubmit() {
-             axios.post('http://127.0.0.1:8000/api/v1/user/paysender',
+             axios.post(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/paysender',
                 {
                     name: this.register_user.name,
                     surname: this.register_user.surname,
@@ -104,7 +124,9 @@ import axios from 'axios';
                     phone: this.register_user.phone,
                     iin: this.register_user.iin,
                     type_agreement: this.register_user.type_agreement,
-                    date_agreement: this.register_user.date_agreement
+                    date_agreement: this.register_user.date_agreement,
+                    warning: 0,
+                    comment: "nothing"
                       
                 })
                 .then(response => {
@@ -167,6 +189,7 @@ import axios from 'axios';
            
             width: 180px;
             padding: 10px;
+            margin-bottom: 20px;
             background-color:  var(--main-project-color);
             color: white;
             outline: none;
@@ -175,6 +198,8 @@ import axios from 'axios';
     .register__button:hover {
         background-color: var(--main-project-color);
     }
+
+   
   
 
 

@@ -42,8 +42,8 @@
 
                         <p style="color: green">{{current_order}} из {{all_order}}</p>
 
-                        <p>Дата получение ключа от квартиры: {{(parseInt(client.date.split("-")[0])+1)+"-"+client.date.split("-")[1]+"-"+client.date.split("-")[2]}}</p>
-                     
+                        <!-- <p>Дата получение ключа от квартиры: {{(parseInt(client.date.split("-")[0])+1)+"-"+client.date.split("-")[1]+"-"+client.date.split("-")[2]}}</p>
+                      -->
                         <p v-if="client.warning>0">{{client.warning}} замечания</p>
                         <p v-if="client.warning>0">Ваш очередь продлен на {{client.warning}} месяць</p>
                         
@@ -150,7 +150,7 @@ import axios from 'axios';
                 this.$router.push('/');
             },
             get_profile() {
-                axios.post('http://127.0.0.1:8000/api/v1/user/me',
+                axios.post(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/me',
                 {
                     
                 })
@@ -165,7 +165,7 @@ import axios from 'axios';
                 });
             },
             getClient(id) {
-                axios.get('http://127.0.0.1:8000/api/v1/user/get/client?id='+id,
+                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/get/client?id='+id,
                 {
                   
                 })
@@ -182,7 +182,7 @@ import axios from 'axios';
             },
             get_order(id) {
                 
-                axios.get('http://127.0.0.1:8000/api/v1/user/paysender/list?type='+1
+                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/paysender/list?type='+1
                 )
                 .then(response => {
                    
@@ -205,7 +205,7 @@ import axios from 'axios';
                 });
             },
             getTransactions(id) {
-                axios.get('http://127.0.0.1:8000/api/v1/user/get/transactions?id='+id,
+                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/get/transactions?id='+id,
                 {
                   
                 })

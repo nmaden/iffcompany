@@ -7,7 +7,7 @@
                 <p v-if="user.role==2">Пользователь системы</p>
 
                 <button class="main__logout" @click="logout()">Выйти из системы</button>
-                
+            
             </div>
            
 
@@ -19,6 +19,14 @@
 
                     <router-link  class="list__create" to="/register-user">Регистрация пайщика</router-link>
                     <button class="list__create" @click="openmodal()">Создать личный кабинет пайщика</button>
+
+                    <select name="" id="" v-model="type_order" @change="get_order_by_type()">
+                        <option selected disabled hidden>Выбрать тип очередь</option>
+
+                        <option value="1">Очередь по умалчанию</option>
+                        <option value="2">Очередь по 30%</option>
+                        <option value="3">Очередь по 50%</option>
+                    </select>
                 </div>
                
                 <p class="list__title">Список пайщиков</p>
@@ -234,7 +242,7 @@ import axios from 'axios';
     export default {
         data() {
             return {
-
+                type_order: 1,
                 update: {
                     client_id: null,
                     name: null,
@@ -282,7 +290,34 @@ import axios from 'axios';
             }
             };
         },
+        mounted() {
+             this.check_auth();
+             
+             this.get_profile();
+            this.get_list_without_account();
+             
+        },
         methods: {
+            get_order_by_type() {
+
+                axios.post(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/paysender/listbytype',
+                {
+                    type: 1,
+                    type_order: this.type_order
+                }
+                )
+                .then(response => {
+                   
+                        this.clients = response.data;
+
+                        console.log("clients");
+                        console.log(this.clients);
+                    
+                })
+                .catch(error => {
+                   console.log(error);
+                });
+            },
             showUser(id) {
                    this.$router.push('user-info-'+id);
             },
@@ -309,7 +344,7 @@ import axios from 'axios';
 
             },
             getEmail(id) {
-                axios.get('http://127.0.0.1:8000/api/v1/user/get/user/email?client_id='+id,
+                axios.get(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/get/user/email?client_id='+id,
                 {
                   
                 })
@@ -321,7 +356,7 @@ import axios from 'axios';
                 });
             },
             getClient(id) {
-                axios.get('http://127.0.0.1:8000/api/v1/user/get/client?id='+id,
+                axios.get(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/get/client?id='+id,
                 {
                   
                 })
@@ -356,7 +391,7 @@ import axios from 'axios';
             },
             get_list() {
                 
-                axios.get('http://127.0.0.1:8000/api/v1/user/paysender/list?type='+1
+                axios.get(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/paysender/list?type='+1
                 )
                 .then(response => {
                    
@@ -372,11 +407,14 @@ import axios from 'axios';
             },
             get_list_without_account() {
                 
-                axios.get('http://127.0.0.1:8000/api/v1/user/paysender/list?type='+2
+                axios.get(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/paysender/without/account'
                 )
                 .then(response => {
                    
                         this.list_without_account = response.data;
+
+                        console.log("without account");
+                        console.log(this.list_without_account );
                     
                 })
                 .catch(error => {
@@ -384,12 +422,12 @@ import axios from 'axios';
                 });
             },
             get_profile() {
-                axios.post('http://127.0.0.1:8000/api/v1/user/me',
+                axios.post(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/me',
                 {
                     
                 })
                 .then(response => {
-                   
+                     
                         this.user.role = response.data.roles[0].id;
                         
                         this.get_list();
@@ -399,7 +437,7 @@ import axios from 'axios';
                 });
             },
             create_user() {
-                axios.post('http://127.0.0.1:8000/api/v1/user/create',
+                axios.post(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/create',
                 {
                     email: this.login,
                     password: this.password,
@@ -416,7 +454,7 @@ import axios from 'axios';
                 });
             },
             update_user() {
-                axios.post('http://127.0.0.1:8000/api/v1/user/update/data',
+                axios.post(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/update/data',
                 {
                     client_id: this.update.client_id,
                     name: this.update.name,
@@ -440,13 +478,7 @@ import axios from 'axios';
                 });
             }
         },
-        mounted() {
-             this.check_auth();
-             
-             this.get_profile();
-            this.get_list_without_account();
-             
-        },
+  
          watch: {
             '$route'() {
                 this.check_auth();        
@@ -476,11 +508,16 @@ import axios from 'axios';
             }
         }
         .main__buttons {
-            width: 600px;
+            width: 810px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
             align-self: center;
+
+            select {
+                height: 40px;
+            }
         }
         .main__logout {
             padding: 10px;

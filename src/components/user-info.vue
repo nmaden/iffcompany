@@ -160,7 +160,7 @@ import axios from 'axios';
                 modal.style.display = "none";
             },
             getClient(id) {
-                axios.get('http://127.0.0.1:8000/api/v1/user/get/client?id='+id,
+                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/get/client?id='+id,
                 {
                   
                 })
@@ -172,7 +172,7 @@ import axios from 'axios';
                 });
             },
             getTransactions(id) {
-                axios.get('http://127.0.0.1:8000/api/v1/user/get/transactions?id='+id,
+                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/get/transactions?id='+id,
                 {
                   
                 })
@@ -196,7 +196,7 @@ import axios from 'axios';
             },
 
             create_transaction() {
-                axios.post('http://127.0.0.1:8000/api/v1/user/send/transaction',
+                axios.post(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/send/transaction',
                 {
                     client_id: this.$route.params.id,
                     amount: this.amount,
