@@ -112,7 +112,7 @@ import axios from 'axios';
                 });
             },
             get_feedback() {
-                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/get/feedback',
+                axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'get/feedback',
                 {
                    
                 })
