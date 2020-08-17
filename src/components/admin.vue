@@ -99,7 +99,7 @@
                             <div @click="modal_edit(list.id)" v-if="user.role==1">
                                 <i class="fas fa-pen list__edit"></i>
                             </div>
-                            <div @click="modal_delete()" v-if="user.role==1">
+                            <div @click="modal_delete(list.id)" v-if="user.role==1">
                                 <i class="far fa-trash-alt list__remove"></i>
                             </div>
                            
@@ -200,17 +200,7 @@
                             <input class="inner__input" type="text" v-model="update.password">
                             
                             
-<!-- 
-                            <p class="label">Логин</p> -->
-                            <!-- <vue-tel-input v-model="phone"  placeholder="" enabledCountryCode="true" defaultCountry='Kazakhstan' class="modal__phone"></vue-tel-input>
-                                -->
-                            <!-- <input class="inner__input"  type="text" placeholder="Введите логин" v-model="update.email">
-                            
-                            <p class="label">Пароль</p>
 
-                            <input type="text" class="inner__input"  placeholder="Введите пароль" v-model="update.password">
-                            
-                           -->
                             <button class="button" ><p class="button__text">Редактировать</p></button>
                         </form>
                     </div>
@@ -330,11 +320,30 @@ import axios from 'axios';
                 var modal = document.querySelector('.modal__create');
                 modal.style.display = "flex";
             },
-            modal_delete() {
-                var modal = document.querySelector('.modal__delete');
-                modal.style.display = "flex";
+            modal_delete(id) {
+
+                // var modal = document.querySelector('.modal__delete');
+                // modal.style.display = "flex";
+
+                axios.post(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/delete/paysender',
+                {
+                    client_id: id
+                }
+                )
+                .then(response => {
+                        this.$alert(response.data.success);
+                        // this.clients = response.data;
+
+                        // console.log("clients");
+                        // console.log(this.clients);
+                    
+                })
+                .catch(error => {
+                   console.log(error);
+                });
             },
             modal_edit(id) {
+
                 var modal = document.querySelector('.modal__edit');
                 modal.style.display = "flex";
 

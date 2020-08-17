@@ -36,6 +36,10 @@
                             <p>ДАТА ТРАНЗАКЦИЙ</p>
                         </div>
 
+                         <div>
+                            <p>Действие</p>
+                        </div>
+
                     </div>
 
                     <div class="list__scroll">
@@ -58,6 +62,18 @@
                              <div>
                                 <p>{{item.date_of_transaction}}</p>
                             </div>
+                            
+                            <div class="list__col list__actions">
+
+                                <div @click="modal_edit_transaction(list.id)" v-if="user.role==1">
+                                    <i class="fas fa-pen list__edit"></i>
+                                </div>
+
+                                <div @click="modal_delete_transaction(list.id)" v-if="user.role==1">
+                                    <i class="far fa-trash-alt list__remove"></i>
+                                </div>
+                            
+                            </div>
 
                         </div>
                       
@@ -76,7 +92,7 @@
                         <!-- <div class="modal__loader" v-if="loader">
                             <img src="../assets/images/loader.gif" alt="">
                         </div> -->
-                        <p class="inner__text inner__header">Добавить транзакцию</p>
+                        <p class="inner__text inner__header">Редактировать транзакцию</p>
                         
                     </div>
 
@@ -117,8 +133,54 @@
 
                 </div>
             </div>
+     <div class="modal modal__edit">
 
+                <div class="modal__inner">
+                    <i class="fas fa-times modal__close" @click="closemodal('modal__edit')"></i>
+
+                    <div class="modal__inner_header">
+                        <div class="modal__loader" v-if="loader">
+                            <img src="../assets/images/loader.gif" alt="">
+                        </div>
+                        <p class="inner__text inner__header">Редактировать данные пайщика</p>
+                        
+                    </div>
+                    <div>
+
+
+                        <form action="" @submit.prevent="update_user_transaction">
+                            <p class="label">Сумма</p>
+                            <input class="inner__input" type="text" v-model="update.amount">
+
+                            <p class="label">Тип транзакций</p>
+                            <!-- <input class="inner__input"  type="text" v-model="update.type_of_transaction"> -->
+                            <p v-if="update.type_of_transaction==1">Вступительны взнос</p>
+                            <p v-else>Паевый взнос</p>
+
+                            <select name="" id="" v-model="update.type_of_transaction">
+                                <option value="1">Вступительный взнос</option>
+                                <option value="2">Паевый взнос</option>
+                            </select>
+                            
+                            <p class="label">Адрес банка</p>
+                            <input class="inner__input" type="text" v-model="update.street_of_bank">
+                            
+                            <p class="label">Дата транзакций</p>
+                            <input class="inner__input"  type="date" v-model="update.date_of_transaction">
+
+                            <p class="label">Номер чека</p>
+                            <input class="inner__input"  type="date" v-model="update.number_payment">
+                            
+           
+                            <button class="button" ><p class="button__text">Редактировать</p></button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
     </div>
+
+    
 </template>
 
 <script>
@@ -127,6 +189,14 @@ import axios from 'axios';
   export default {
         data() {
             return {
+                update: {
+                    id: null,
+                    amount: null,
+                    type_of_transaction: null,
+                    street_of_bank: null,
+                    date_of_transaction: null,
+                    number_payment: null
+                },
                 number_payment: '',
                 show: false,
                 phone: '',
@@ -142,15 +212,100 @@ import axios from 'axios';
                 street: '',
                 date:'',
                 client: [],
-                check: false
+                check: false,
+                user: {
+                    id: null
+                }
              
             };
         },
         mounted() {
-            this.getTransactions(this.$route.params.id);
-            this.getClient(this.$route.params.id);
+            this.get_profile();
         },
         methods: {
+
+            get_profile() {
+                axios.post(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/me',
+                {
+                    
+                })
+                .then(response => {
+                     
+                    this.user.role = response.data.roles[0].id;    
+                    this.getTransactions(this.$route.params.id);
+                    this.getClient(this.$route.params.id);
+                      
+                })
+                .catch(error => {
+                   console.log(error);
+                });
+            },
+            getPayment(id) {
+                
+                axios.post(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/get/paytransaction',
+                {
+                    transactions_id: id,
+                    client_id: this.$route.params.id
+                })
+                .then(response => {  
+                    this.update.id = response.data.id;
+                    this.update.amount = response.data.amount;
+                    this.update.type_of_transaction = response.data.type_of_transaction;
+                    this.update.street_of_bank = response.data.street_of_bank;
+                    this.update.date_of_transaction = response.date_of_transaction;
+                    this.update.number_payment = response.data.number_payment;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+            },
+            modal_edit_transaction(id) {
+
+                var modal = document.querySelector('.modal__edit');
+                modal.style.display = "flex";
+
+                this.getPayment(id);
+
+             
+            },
+
+            update_user_transaction(id) {
+                    axios.post(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/update/paytransaction',
+                    {
+                        id: this.update.id,
+                        client_id: this.$route.params.id,
+                        amount : this.update.amount,
+                        type_of_transaction : this.update.type_of_transaction,
+                        street_of_bank : this.update.street_of_bank,
+                        date_of_transaction : this.update.date_of_transaction,
+                        number_payment : this.update.number_payment
+                    }
+                    )
+                    .then(response => {
+                        this.$alert(response.data.success);                        
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            },
+            modal_delete_transaction(id) {
+                axios.post(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/delete/paytransaction',
+                {
+                    client_id: id
+                }
+                )
+                .then(response => {
+                    this.$alert(response.data.success);
+                        // this.clients = response.data;
+
+                        // console.log("clients");
+                        // console.log(this.clients);
+                    
+                })
+                .catch(error => {
+                   console.log(error);
+                });
+            },
             openmodal() {
                 var modal = document.querySelector('.modal__create');
                 modal.style.display = "flex";
