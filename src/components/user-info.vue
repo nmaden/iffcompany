@@ -65,11 +65,11 @@
                             
                             <div class="list__col list__actions">
 
-                                <div @click="modal_edit_transaction(list.id)" v-if="user.role==1">
+                                <div @click="modal_edit_transaction(item.id)" v-if="user.role==1">
                                     <i class="fas fa-pen list__edit"></i>
                                 </div>
 
-                                <div @click="modal_delete_transaction(list.id)" v-if="user.role==1">
+                                <div @click="modal_delete_transaction(item.id)" v-if="user.role==1">
                                     <i class="far fa-trash-alt list__remove"></i>
                                 </div>
                             
@@ -166,10 +166,11 @@
                             <input class="inner__input" type="text" v-model="update.street_of_bank">
                             
                             <p class="label">Дата транзакций</p>
+        
                             <input class="inner__input"  type="date" v-model="update.date_of_transaction">
 
                             <p class="label">Номер чека</p>
-                            <input class="inner__input"  type="date" v-model="update.number_payment">
+                            <input class="inner__input"  type="text" v-model="update.number_payment">
                             
            
                             <button class="button" ><p class="button__text">Редактировать</p></button>
@@ -223,7 +224,11 @@ import axios from 'axios';
             this.get_profile();
         },
         methods: {
-
+            closemodal(type) {
+               
+                    var modal = document.querySelector('.'+type);
+                    modal.style.display = "none";
+            },
             get_profile() {
                 axios.post(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/me',
                 {
@@ -248,11 +253,12 @@ import axios from 'axios';
                     client_id: this.$route.params.id
                 })
                 .then(response => {  
+                    
                     this.update.id = response.data.id;
                     this.update.amount = response.data.amount;
                     this.update.type_of_transaction = response.data.type_of_transaction;
                     this.update.street_of_bank = response.data.street_of_bank;
-                    this.update.date_of_transaction = response.date_of_transaction;
+                    this.update.date_of_transaction = response.data.date_of_transaction;
                     this.update.number_payment = response.data.number_payment;
                 })
                 .catch(error => {
@@ -282,20 +288,26 @@ import axios from 'axios';
                     }
                     )
                     .then(response => {
-                        this.$alert(response.data.success);                        
+                        this.$alert(response.data.success);  
+                        this.closemodal('modal__edit');
+                        this.getTransactions(this.$route.params.id);                      
                     })
                     .catch(error => {
                         console.log(error);
                     });
             },
             modal_delete_transaction(id) {
+             
                 axios.post(process.env.VUE_APP_API + process.env.VUE_APP_API_VERSION+'user/delete/paytransaction',
                 {
-                    client_id: id
+                    transaction_id: id,
+                    client_id: this.$route.params.id
                 }
                 )
                 .then(response => {
                     this.$alert(response.data.success);
+
+                    this.getTransactions(this.$route.params.id);
                         // this.clients = response.data;
 
                         // console.log("clients");
@@ -310,10 +322,10 @@ import axios from 'axios';
                 var modal = document.querySelector('.modal__create');
                 modal.style.display = "flex";
             },
-            closemodal() {
-                var modal = document.querySelector('.modal__create');
-                modal.style.display = "none";
-            },
+            // closemodal() {
+            //     var modal = document.querySelector('.modal__create');
+            //     modal.style.display = "none";
+            // },
             getClient(id) {
                 axios.get(process.env.VUE_APP_API+process.env.VUE_APP_API_VERSION+'user/get/client?id='+id,
                 {
